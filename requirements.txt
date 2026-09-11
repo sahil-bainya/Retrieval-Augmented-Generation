@@ -1,0 +1,39 @@
+# ==============================
+# LangChain Core
+# ==============================
+langchain
+langchain-core
+
+# ==============================
+# LLM Integrations
+# ==============================
+langchain-groq
+langchain-huggingface
+
+# ==============================
+# Hugging Face / Local Models
+# ==============================
+transformers
+huggingface-hub
+torch
+
+# ==============================
+# Environment Variables
+# ==============================
+python-dotenv
+
+# ==============================
+# Data / Machine Learning
+# ==============================
+numpy
+scikit-learn
+
+# ==============================
+# Data Validation / Structured Output
+# ==============================
+pydantic
+
+# ==============================
+# HTTP / API Utilities
+# ==============================
+requests
