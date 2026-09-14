@@ -6,4 +6,10 @@ loader = DirectoryLoader(
     loader_cls=PyPDFLoader,  # loader that will load the pdfs of that directory
 )
 
-docs = loader.load()
+# docs = loader.load() <-- Resource is loaded immediately when needed/page starts.
+
+docs = loader.lazy_load() # <-- 	Resource is loaded only when actually needed.
+
+for document in docs:
+    print(document)
+

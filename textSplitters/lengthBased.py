@@ -1,3 +1,6 @@
+from langchain_text_splitters import CharacterTextSplitter
+
+text = """
 Essay on Cricket
 Cricket is one of the most popular sports in the world, especially in countries such as India, Australia, England, Pakistan, South Africa, and New Zealand. It is a team sport that combines skill, strategy, concentration, and physical fitness. For millions of people, cricket is not just a game but an important part of their culture and everyday life.
 Cricket is played between two teams, with eleven players on each side. The game is played on a large field with a rectangular pitch in the center. The main objective is to score more runs than the opposing team. One team bats while the other team bowls and fields. The batsmen try to score runs by hitting the ball, while the bowlers and fielders attempt to restrict the scoring and dismiss the batsmen.
@@ -7,3 +10,11 @@ In India, cricket has a special place in people's hearts. The sport has produced
 Cricket also teaches valuable lessons beyond the playing field. It teaches us the importance of teamwork, perseverance, sportsmanship, leadership, and accepting both victory and defeat. A player may fail in one match but can learn from mistakes and perform better in the next. This makes cricket a sport that develops not only physical abilities but also mental strength.
 However, cricket should be played and followed in the spirit of sportsmanship. Winning is important, but respecting opponents, officials, and teammates is equally valuable. Young people should also balance their interest in cricket with education, health, and other responsibilities.
 In conclusion, cricket is much more than a game. It brings people together, creates memorable moments, encourages healthy competition, and teaches important values. Its combination of skill, strategy, teamwork, and excitement has made it one of the world's most loved sports. For millions of fans, cricket will continue to be a source of passion, inspiration, and entertainment for generations to come.
+"""
+splitter = CharacterTextSplitter(chunk_size=100, chunk_overlap=0, separator="")
+
+result = splitter.split_text(text)
+
+for t in result:
+    print(t)
+    print('---------------------------------')
