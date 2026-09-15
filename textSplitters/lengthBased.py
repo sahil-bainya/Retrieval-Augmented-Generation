@@ -1,5 +1,8 @@
 from langchain_text_splitters import CharacterTextSplitter
+from langchain_community.document_loaders import PyPDFLoader
 
+loader = PyPDFLoader('cricket.pdf')
+docs = loader.load()
 text = """
 Essay on Cricket
 Cricket is one of the most popular sports in the world, especially in countries such as India, Australia, England, Pakistan, South Africa, and New Zealand. It is a team sport that combines skill, strategy, concentration, and physical fitness. For millions of people, cricket is not just a game but an important part of their culture and everyday life.
@@ -11,10 +14,12 @@ Cricket also teaches valuable lessons beyond the playing field. It teaches us th
 However, cricket should be played and followed in the spirit of sportsmanship. Winning is important, but respecting opponents, officials, and teammates is equally valuable. Young people should also balance their interest in cricket with education, health, and other responsibilities.
 In conclusion, cricket is much more than a game. It brings people together, creates memorable moments, encourages healthy competition, and teaches important values. Its combination of skill, strategy, teamwork, and excitement has made it one of the world's most loved sports. For millions of fans, cricket will continue to be a source of passion, inspiration, and entertainment for generations to come.
 """
-splitter = CharacterTextSplitter(chunk_size=100, chunk_overlap=0, separator="")
+splitter = CharacterTextSplitter(chunk_size=300, chunk_overlap=0, separator="")
 
-result = splitter.split_text(text)
+# result = splitter.split_text(text)
+# for t in result:
+#     print(t)
+#     print('---------------------------------')
 
-for t in result:
-    print(t)
-    print('---------------------------------')
+result = splitter.split_documents(docs)
+print(result[0].page_content)
